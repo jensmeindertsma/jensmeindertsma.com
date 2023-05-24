@@ -6,6 +6,7 @@ empty here, so stay tuned!
 ### TODO
 
 - [x] Initial setup
+- [ ] Fix wrangler.toml not being picked up
 - [ ] Prettier
 - [ ] ESLint
 - [ ] CI setup
