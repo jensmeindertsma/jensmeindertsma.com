@@ -1,7 +1,7 @@
-node_modules
+# NPM
+/node_modules/
 
-/.cache
-/functions/\[\[path\]\].js
-/functions/\[\[path\]\].js.map
-/public/build
-.dev.vars
+# Solid
+/.solid/
+/dist/
+/functions/
