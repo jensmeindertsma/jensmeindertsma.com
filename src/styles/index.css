@@ -1,0 +1,41 @@
+main {
+  display: block;
+
+  width: 80%;
+  max-width: 360px;
+  height: min-content;
+
+  padding: 1em;
+  padding-bottom: 2em;
+
+  margin-top: 4em;
+
+  border: 0.38em dashed var(--orange);
+}
+
+h1 {
+  display: block;
+
+  margin-bottom: 0.5em;
+
+  font-size: 2.5rem;
+  white-space: pre-wrap;
+}
+
+p.link {
+  margin-top: 1em;
+}
+
+p.link a {
+  color: var(--text);
+
+  font-weight: bold;
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 0.15em;
+}
+
+@media (min-width: 600px) {
+  main {
+    margin-top: 10vw;
+  }
+}
