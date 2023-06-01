@@ -1,25 +1,20 @@
 {
   "name": "@jensmeindertsma/jensmeindertsma.com",
+  "type": "module",
   "scripts": {
-    "dev": "solid-start dev",
     "build": "solid-start build",
+    "clean": "rimraf ./.solid/ ./dist/ ./functions/",
+    "dev": "solid-start dev",
     "start": "solid-start start"
   },
-  "type": "module",
   "dependencies": {
-    "@solidjs/meta": "^0.28.5",
-    "@solidjs/router": "^0.8.2",
     "solid-js": "^1.7.6",
-    "solid-start": "^0.2.26",
-    "undici": "^5.22.1"
+    "solid-start": "^0.2.26"
   },
   "devDependencies": {
-    "esbuild": "^0.17.19",
-    "postcss": "^8.4.24",
+    "rimraf": "^5.0.1",
     "solid-start-cloudflare-pages": "^0.2.26",
-    "solid-start-node": "^0.2.26",
     "typescript": "^5.0.4",
-    "vite": "^4.3.9",
     "wrangler": "^3.0.1"
   }
 }
