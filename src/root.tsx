@@ -1,7 +1,6 @@
 // @refresh reload
 import { Suspense } from "solid-js";
 import {
-  A,
   Body,
   ErrorBoundary,
   FileRoutes,
@@ -19,7 +18,7 @@ export default function Root() {
   return (
     <Html lang="en">
       <Head>
-        <Title>SolidStart - Bare</Title>
+        <Title>Jens Meindertsma</Title>
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
         <Link rel="icon" type="image/png" href="/favicon.png" />
@@ -27,7 +26,6 @@ export default function Root() {
       <Body>
         <Suspense>
           <ErrorBoundary>
-            <h1>ME!!!</h1>
             <Routes>
               <FileRoutes />
             </Routes>
