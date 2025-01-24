@@ -1,0 +1,5 @@
+# PNPM
+/pnpm-lock.yaml
+
+# React Router
+/.react-router/
