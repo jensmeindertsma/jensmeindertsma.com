@@ -1,5 +1,12 @@
+import { readdir, readFile } from "fs/promises";
 import { Link } from "react-router";
+import Markdoc from "@markdoc/markdoc";
+import yaml from "yaml";
 import type { Route } from "./+types/index";
+
+export function meta() {
+  return [{ title: "Home" }];
+}
 
 export default function Home({
   loaderData: { writeups },
@@ -22,5 +29,24 @@ export default function Home({
 }
 
 export async function loader() {
-  return { writeups: [{ title: "Teacher", url: "/htb/teacher" }] };
+  const directories = await readdir("content/htb");
+
+  return {
+    writeups: await Promise.all(
+      directories.map(async (dir) => {
+        const content = await readFile(
+          `content/htb/${dir}/${dir}.md`,
+        ).toString();
+
+        const ast = Markdoc.parse(content);
+
+        const frontmatter = ast.attributes.frontmatter
+          ? yaml.parse(ast.attributes.frontmatter)
+          : {};
+        const { title } = frontmatter;
+
+        return { title, url: `/htb/${dir}` };
+      }),
+    ),
+  };
 }

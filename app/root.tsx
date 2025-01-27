@@ -12,7 +12,7 @@ import type { Route } from "./+types/root";
 import type { ReactNode } from "react";
 
 export function meta({ error }: Route.MetaArgs) {
-  return [{ title: error ? "Error!" : "Home" }];
+  return [{ title: error ? "Error!" : "Jens Meindertsma" }];
 }
 
 export function links(): Route.LinkDescriptors {
