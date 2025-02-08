@@ -34,12 +34,10 @@ export async function loader() {
   return {
     writeups: await Promise.all(
       directories.map(async (dir) => {
-        const content = await readFile(
-          `content/htb/${dir}/${dir}.md`,
-        ).toString();
+        const file = await readFile(`content/htb/${dir}/${dir}.md`);
+        const content = file.toString();
 
         const ast = Markdoc.parse(content);
-
         const frontmatter = ast.attributes.frontmatter
           ? yaml.parse(ast.attributes.frontmatter)
           : {};
