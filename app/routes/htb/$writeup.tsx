@@ -1,8 +1,8 @@
-import fs from "node:fs/promises";
 import Markdoc from "@markdoc/markdoc";
 import yaml from "yaml";
 import { data, isRouteErrorResponse, useRouteError } from "react-router";
-import { Markdown } from "~/components/markdown";
+import React from "react";
+import { getContent, isContentAvailable } from "~/utilities/content.server";
 import type { Route } from "./+types/$writeup";
 
 export default function Writeup({
@@ -15,13 +15,19 @@ export default function Writeup({
         <li>Difficulty: {difficulty}</li>
         <li>OS: {os}</li>
       </ul>
-      <Markdown content={content} />
+      {Markdoc.renderers.react(content, React)}
     </>
   );
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
-  const content = await getContent(params.writeup);
+  const contentAvailable = await isContentAvailable();
+
+  if (!contentAvailable) {
+    throw data("Cannot render new pages in production!", { status: 404 });
+  }
+
+  const content = await getContent("htb", params.writeup);
 
   if (!content) {
     throw data("Write-up not found!", { status: 404 });
@@ -59,14 +65,6 @@ export async function loader({ params }: Route.LoaderArgs) {
       },
     }),
   };
-}
-
-async function getContent(name: string) {
-  try {
-    return (await fs.readFile(`content/htb/${name}/${name}.md`)).toString();
-  } catch {
-    return null;
-  }
 }
 
 export function ErrorBoundary() {
