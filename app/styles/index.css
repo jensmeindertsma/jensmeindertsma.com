@@ -1,0 +1,67 @@
+@media (prefers-color-scheme: light) {
+  img.dark {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  img.light {
+    display: none;
+  }
+}
+
+section,
+section div {
+  display: flex;
+  flex-direction: column;
+}
+
+.itvitae {
+  border: 0.25em solid red;
+}
+
+.northwave {
+  border: 0.25em solid blue;
+}
+
+.comptia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+
+  margin-top: 2em;
+}
+
+.casp {
+  position: relative;
+}
+
+.casp img {
+  opacity: 50%;
+}
+
+.casp span {
+  position: absolute;
+  color: white;
+  padding: 0.5em 1em;
+  background-color: black;
+  font-family: monospace;
+  font-weight: bolder;
+
+  border-radius: 0.5em;
+
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .casp img {
+    opacity: 40%;
+  }
+
+  .casp span {
+    color: black;
+    background-color: white;
+  }
+}

@@ -4,3 +4,12 @@
     background-color: black;
   }
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  margin: 1em;
+}

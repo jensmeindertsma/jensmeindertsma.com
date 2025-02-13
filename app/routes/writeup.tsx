@@ -3,7 +3,7 @@ import yaml from "yaml";
 import { data, isRouteErrorResponse, useRouteError } from "react-router";
 import React from "react";
 import { getContent, isContentAvailable } from "~/utilities/content.server";
-import type { Route } from "./+types/$writeup";
+import type { Route } from "./+types/writeup";
 
 export default function Writeup({
   loaderData: { title, difficulty, os, content },
